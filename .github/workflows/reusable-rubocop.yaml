@@ -1,0 +1,29 @@
+name: RuboCop
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        required: true
+        type: string
+
+jobs:
+  rubocop:
+    name: RuboCop
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+          bundler-cache: true
+
+      - name: Rubocop with ReviewDog
+        uses: reviewdog/action-rubocop@v2
+        with:
+          rubocop_version: gemfile
+          workdir: ${{ inputs.working-directory }}

@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV["POSTGRES_HOST"] %>
+  username: <%= ENV.fetch("POSTGRES_USER", "codeminer42") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD", "8HWHrSmKtcUMnr") %>
+  pool: <%= ENV.fetch("POSTGRES_POOL", 5) %>
+
+development:
+  <<: *default
+  database: <%= ENV.fetch("POSTGRES_DB", "codeminer42_development") %>
+
+test:
+  <<: *default
+  database: codeminer42_test

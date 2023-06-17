@@ -1,0 +1,21 @@
+name: Feature code review
+
+on:
+  push:
+    branches: [main]
+
+env:
+  RAILS_ENV: test
+
+jobs:
+  backend-ci:
+    uses: ./.github/workflows/feature-code-review.yml
+
+  deployment:
+    name: Deployment
+    runs-on: ubuntu-22.04
+    needs: [backend-ci]
+
+    steps:
+      - name: Trigger deployment on render.com
+        run: curl -s ${{ secrets.RENDER_DEPLOY_HOOK_URL }} -o /dev/null

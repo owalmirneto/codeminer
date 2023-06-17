@@ -1,0 +1,21 @@
+name: Feature code review
+
+on:
+  workflow_call:
+
+  pull_request:
+    branches: [main]
+
+env:
+  RAILS_ENV: test
+
+jobs:
+  backend-code-style:
+    uses: ./.github/workflows/reusable-rubocop.yaml
+    with:
+      working-directory: apps/backend
+
+  backend-test:
+    uses: ./.github/workflows/reusable-rspec.yaml
+    with:
+      working-directory: apps/backend
