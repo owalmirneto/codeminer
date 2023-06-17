@@ -25,6 +25,8 @@ gem "jbuilder"
 gem "bootsnap", require: false
 
 group :development, :test do
+  # https://github.com/bkeepers/dotenv#rails
+  gem "dotenv-rails", "~> 2.8"
 end
 
 group :development do
