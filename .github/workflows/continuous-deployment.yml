@@ -2,7 +2,7 @@ name: Feature code review
 
 on:
   push:
-    branches: [feature/setup-backend]
+    branches: [main]
 
 env:
   RAILS_ENV: test
@@ -18,4 +18,4 @@ jobs:
 
     steps:
       - name: Trigger deployment on render.com
-        run: curl ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: curl -s ${{ secrets.RENDER_DEPLOY_HOOK_URL }} -o /dev/null
