@@ -1,0 +1,57 @@
+name: RSpec
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        required: true
+        type: string
+
+jobs:
+  rspec:
+    name: RSpec
+    runs-on: ubuntu-22.04
+
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/codeminer42_test
+
+    services:
+      db:
+        image: postgres:15.3-bullseye
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+          bundler-cache: true
+
+      - name: Verify ruby version
+        working-directory: ${{ inputs.working-directory }}
+        run: ruby --version
+
+      - name: Install bundler
+        working-directory: ${{ inputs.working-directory }}
+        run: gem install bundler && bundler install
+
+      - name: Prepare database
+        working-directory: ${{ inputs.working-directory }}
+        run: bin/rails db:setup db:test:prepare db:schema:load db:migrate RAILS_ENV=test;
+
+      - name: Run RSpec
+        working-directory: ${{ inputs.working-directory }}
+        run: bin/rspec
