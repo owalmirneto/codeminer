@@ -55,3 +55,6 @@ group :test do
   # https://github.com/stympy/faker
   gem "faker", "~> 3.2"
 end
+
+# https://github.com/joeljunstrom/ruby_luhn#basic-luhn-
+gem "luhn", "~> 1.0"
