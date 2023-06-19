@@ -291,6 +291,7 @@ DEPENDENCIES
   rails-i18n (~> 7.0)
   rspec-rails (~> 6.0)
   rubocop-capybara (~> 2.18)
+  rubocop-factory_bot (~> 2.23)
   rubocop-performance (~> 1.18)
   rubocop-rails (~> 2.19)
   rubocop-rspec (~> 2.22)
