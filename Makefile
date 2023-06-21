@@ -7,7 +7,7 @@ start:
 	docker-compose down && docker-compose up;
 
 dbprepare:
-	cd apps/backend && bin/rails db:drop db:create db:migrate --trace RAILS_ENV=test;
+	cd apps/backend && make dbprepare;
 
 dbreseed:
-	cd apps/backend && bin/rails db:drop db:create db:migrate db:seed --trace RAILS_ENV=development;
+	cd apps/backend && make dbreseed;

@@ -1,12 +1,17 @@
 require:
   - rubocop-rails
   - rubocop-performance
+  - rubocop-factory_bot
   - rubocop-capybara
   - rubocop-rspec
 
 Metrics/MethodLength:
   Exclude:
     - db/migrate/**/*
+
+# TODO: check why this generate `An error occurred while Rails/UniqueValidationWithoutIndex cop` if the app doesn't use uniqueness validation
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
