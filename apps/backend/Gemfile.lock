@@ -111,6 +111,10 @@ GEM
     importmap-rails (1.2.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    interactor (3.1.2)
+    interactor-rails (2.2.1)
+      interactor (~> 3.0)
+      rails (>= 4.2)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -282,6 +286,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.2)
   faker (~> 3.2)
   importmap-rails
+  interactor-rails (~> 2.2)
   jbuilder
   luhn (~> 1.0)
   pg (~> 1.1)

@@ -60,3 +60,5 @@ end
 
 # https://github.com/joeljunstrom/ruby_luhn#basic-luhn-
 gem "luhn", "~> 1.0"
+# https://github.com/collectiveidea/interactor-rails#usage
+gem "interactor-rails", "~> 2.2"
