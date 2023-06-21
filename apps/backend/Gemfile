@@ -62,3 +62,5 @@ end
 gem "luhn", "~> 1.0"
 # https://github.com/collectiveidea/interactor-rails#usage
 gem "interactor-rails", "~> 2.2"
+# https://github.com/rails-api/active_model_serializers/tree/0-10-stable#getting-started
+gem "active_model_serializers", "~> 0.10.13"
