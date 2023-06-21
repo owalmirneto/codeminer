@@ -27,6 +27,10 @@
 
 /public/assets
 
+# simplecov
+/coverage/*
+!/coverage/.keep
+
 # dotenv-rails
 .env
 .env*.local
