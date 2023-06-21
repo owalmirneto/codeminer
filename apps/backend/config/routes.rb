@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get "healthz", to: "healthz#index"
 
   resources :pilots, only: :create
+  resources :ships, only: :create
 end
